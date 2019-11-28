@@ -20,7 +20,7 @@ names = os.listdir(CLEAN_PATH)
 for name in names:
     fullname = os.path.join(CLEAN_PATH, name)
     if os.path.isfile(fullname):
-        if fullname.lower().endswith(('.ai', '.jpg', '.jpeg', 'psd', '.rar')):
+        if fullname.lower().endswith(('.ai', '.jpg', '.jpeg', 'psd', '.rar', '.pdf', '.svg', '.txt', '.eps', '.png')):
             if not os.path.exists(MV_FOLDER):
                 os.makedirs(MV_FOLDER)
             
