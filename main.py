@@ -25,8 +25,3 @@ for name in names:
                 os.makedirs(MV_FOLDER)
             
             shutil.move(fullname, MV_FOLDER+'/'+name)
-
-
-            
-            
-            print(fullname)
