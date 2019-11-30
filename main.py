@@ -2,6 +2,7 @@ import os
 import shutil
 import datetime
 import pathlib
+from plyer import notification
 
 # ------------------------CONFIG-------------------------------
 
@@ -10,6 +11,14 @@ CLEAN_FORMATS = ('.jpg', '.psd', '.jpeg', '.ai')
 FOLDER_NAME = "WorkFiles"
 
 # -------------------------------------------------------------
+
+def NotifyEnd():
+    notification.notify(
+        title='Cleaning was finished',
+        message='Program was stoped',
+        app_name='PyClean',
+        app_icon=''
+        )
 
 
 now = datetime.datetime.now()
@@ -25,3 +34,4 @@ for name in names:
                 os.makedirs(MV_FOLDER)
             
             shutil.move(fullname, MV_FOLDER+'/'+name)
+NotifyEnd()
