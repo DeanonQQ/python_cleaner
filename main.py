@@ -12,18 +12,12 @@ FOLDER_NAME = "WorkFiles"
 
 # -------------------------------------------------------------
 
-def NotifyEnd():
-    notification.notify(
-        title='Cleaning was finished',
-        message='Program was stoped',
-        app_name='PyClean',
-        app_icon=''
-        )
-
-
 now = datetime.datetime.now()
 
-MV_FOLDER = CLEAN_PATH + "/" + FOLDER_NAME + ' ' + str(now.strftime("%d-%m-%Y"))
+if not os.path.exists(CLEAN_PATH + '/' + FOLDER_NAME):
+    os.makedirs(CLEAN_PATH + '/' + FOLDER_NAME)
+
+MV_FOLDER = CLEAN_PATH + "/" + FOLDER_NAME + "/" + FOLDER_NAME + ' ' + str(now.strftime("%d-%m-%Y"))
 
 names = os.listdir(CLEAN_PATH)
 for name in names:
@@ -34,4 +28,3 @@ for name in names:
                 os.makedirs(MV_FOLDER)
             
             shutil.move(fullname, MV_FOLDER+'/'+name)
-NotifyEnd()
